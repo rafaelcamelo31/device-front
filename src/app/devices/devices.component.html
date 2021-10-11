@@ -1,15 +1,17 @@
 <h2>Device List</h2>
 <ul class="devices">
-  <li
-    *ngFor="let device of devices"
-    (click)="onSelect(device)"
-    [class.selected]="device === selectedDevice"
-  >
-    <span class="badge">{{ device.id }}</span>
-    <span class="item">{{ device.color }}</span>
-    <span class="item">{{ device.partNumber }}</span>
-    <span class="item">{{ device.categoryId }} </span>
+  <li *ngFor="let device of devices">
+    <a routerLink="/devices/detail/{{ device.id }}">
+      <span class="badge">{{ device.id }}</span>
+      <span class="item"
+        ><span class="badge">Color </span>{{ device.color }}</span
+      >
+      <span class="item"
+        ><span class="badge">Number</span>{{ device.partNumber }}</span
+      >
+      <span class="item"
+        ><span class="badge">Category</span>{{ device.categoryId }}
+      </span>
+    </a>
   </li>
 </ul>
-
-<app-device-detail [device]="selectedDevice"></app-device-detail>

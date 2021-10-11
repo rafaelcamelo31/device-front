@@ -11,16 +11,11 @@ import { DEVICES } from './mock-devices';
 })
 export class DevicesComponent implements OnInit {
   devices: Device[] = [];
-  selectedDevice?: Device;
 
   constructor(private deviceService: DeviceService) {}
 
   ngOnInit(): void {
     this.getDevices();
-  }
-
-  onSelect(device: Device): void {
-    this.selectedDevice = device;
   }
 
   getDevices(): void {
