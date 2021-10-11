@@ -1,8 +1,15 @@
-<h1>Device Details</h1>
-<div>
-  <label for="color">Device's color: </label>
-  <input id="color" [(ngModel)]="device.color" placeholder="color" />
-</div>
-<h2>{{ device.color | uppercase }}</h2>
-<div><span>id: </span>{{ device.id }}</div>
-<div><span>part number: </span>{{ device.partNumber }}</div>
+<h2>Device List</h2>
+<ul class="devices">
+  <li
+    *ngFor="let device of devices"
+    (click)="onSelect(device)"
+    [class.selected]="device === selectedDevice"
+  >
+    <span class="badge">{{ device.id }}</span>
+    <span class="item">{{ device.color }}</span>
+    <span class="item">{{ device.partNumber }}</span>
+    <span class="item">{{ device.categoryId }} </span>
+  </li>
+</ul>
+
+<app-device-detail [device]="selectedDevice"></app-device-detail>
