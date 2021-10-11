@@ -1,0 +1,12 @@
+<div *ngIf="device">
+  <h2>{{ device.partNumber }}</h2>
+  <div><span>id: </span>{{ device.id }}</div>
+  <div>
+    <label for="device-number">Device number: </label>
+    <input
+      id="device-number"
+      [(ngModel)]="device.partNumber"
+      placeholder="partNumber"
+    />
+  </div>
+</div>
