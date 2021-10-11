@@ -1,5 +1,12 @@
 <h1>{{ title }}</h1>
-<nav>
-  <a routerLink="/devices">Device Management</a>
-</nav>
+
+<div class="management-box">
+  <nav class="management">
+    <a routerLink="/devices">Device Management</a>
+  </nav>
+  <nav class="management">
+    <a routerLink="/categories">Category Management</a>
+  </nav>
+</div>
+
 <router-outlet></router-outlet>

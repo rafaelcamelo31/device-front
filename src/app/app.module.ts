@@ -6,9 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DevicesComponent } from './devices/devices.component';
 import { DeviceDetailComponent } from './device-detail/device-detail.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, DevicesComponent, DeviceDetailComponent],
+  declarations: [
+    AppComponent,
+    DevicesComponent,
+    DeviceDetailComponent,
+    CategoriesComponent,
+    CategoriesComponent,
+    CategoryDetailComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

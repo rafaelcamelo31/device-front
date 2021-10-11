@@ -45,3 +45,11 @@ nav a:hover {
 nav a.active {
   background-color: black;
 }
+
+.management {
+  padding-left: 40px;
+}
+
+.management-box {
+  display: flex;
+}
