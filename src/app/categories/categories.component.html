@@ -1,9 +1,22 @@
 <h2>Category List</h2>
+
+<div>
+  <label for="new-category">Category name: </label>
+  <input id="new-category" #categoryName />
+
+  <button class="add-button" (click)="add(categoryName.value)">
+    Add a category
+  </button>
+</div>
+
 <ul class="categories">
   <li *ngFor="let category of categories">
     <a routerLink="/categories/detail/{{ category.id }}">
       <span class="badge">{{ category.id }}</span>
       <span class="item">{{ category.name }}</span>
     </a>
+    <button class="delete" title="delete category" (click)="delete(category)">
+      x
+    </button>
   </li>
 </ul>

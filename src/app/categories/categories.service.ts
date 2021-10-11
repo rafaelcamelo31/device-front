@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -9,6 +9,11 @@ import { Category } from './category';
 })
 export class CategoriesService {
   private categoriesUrl = 'http://localhost:3000/categories';
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<Category[]> {
@@ -20,6 +25,20 @@ export class CategoriesService {
   getCategory(id: number): Observable<Category> {
     return this.http
       .get<Category>(this.categoriesUrl + `/${id}`)
+      .pipe(catchError(this.handleError<Category>()));
+  }
+
+  addCategory(category: Category): Observable<Category> {
+    return this.http.post<Category>(
+      this.categoriesUrl,
+      category,
+      this.httpOptions
+    );
+  }
+
+  deleteCategory(id: number): Observable<Category> {
+    return this.http
+      .delete<Category>(this.categoriesUrl + `/${id}`)
       .pipe(catchError(this.handleError<Category>()));
   }
 
