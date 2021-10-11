@@ -8,6 +8,8 @@ import { DevicesComponent } from './devices/devices.component';
 import { DeviceDetailComponent } from './device-detail/device-detail.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,13 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
     CategoriesComponent,
     CategoryDetailComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
