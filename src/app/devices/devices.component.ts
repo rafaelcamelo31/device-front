@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Category } from '../categories/category';
 import { Device } from './device';
 import { DeviceService } from './devices.service';
-import { Observable, of } from 'rxjs';
-import { DEVICES } from './mock-devices';
 
 @Component({
   selector: 'app-devices',
@@ -22,5 +22,15 @@ export class DevicesComponent implements OnInit {
     this.deviceService.getDevices().subscribe((devices) => {
       this.devices = devices;
     });
+  }
+
+  add(color: string, partNumber: string, category: Category | string) {
+    if (!color || !partNumber || !category) return;
+
+    this.deviceService
+      .addDevice({ color, partNumber, category } as Device)
+      .subscribe((device) => {
+        this.devices.push(device);
+      });
   }
 }

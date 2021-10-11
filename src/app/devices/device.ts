@@ -1,6 +1,8 @@
+import { Category } from '../categories/category';
+
 export type Device = {
-  id: number;
+  id?: number;
   color: string;
   partNumber: string;
-  categoryId: number;
+  category: Category;
 };

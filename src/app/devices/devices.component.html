@@ -1,4 +1,25 @@
 <h2>Device List</h2>
+
+<div>
+  <label for="new-device">Device color: </label>
+  <input id="new-device" #deviceColor />
+
+  <label for="new-device">Device part number: </label>
+  <input id="new-device" #devicePartNumber />
+
+  <label for="new-device">Device category: </label>
+  <input id="new-device" #deviceCategory />
+
+  <button
+    class="add-button"
+    (click)="
+      add(deviceColor.value, devicePartNumber.value, deviceCategory.value)
+    "
+  >
+    Add a device
+  </button>
+</div>
+
 <ul class="devices">
   <li *ngFor="let device of devices">
     <a routerLink="/devices/detail/{{ device.id }}">
@@ -10,7 +31,7 @@
         ><span class="badge">Number</span>{{ device.partNumber }}</span
       >
       <span class="item"
-        ><span class="badge">Category</span>{{ device.categoryId }}
+        ><span class="badge">Category</span>{{ device.category.name }}
       </span>
     </a>
   </li>
