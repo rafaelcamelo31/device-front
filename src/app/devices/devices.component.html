@@ -1,14 +1,18 @@
 <h2>Device List</h2>
 
 <div>
-  <label for="new-device">Device color: </label>
+  <label for="new-device">Device color</label>
   <input id="new-device" #deviceColor />
 
-  <label for="new-device">Device part number: </label>
+  <label for="new-device">Device part number</label>
   <input id="new-device" #devicePartNumber />
 
-  <label for="new-device">Device category: </label>
-  <input id="new-device" #deviceCategory />
+  <label for="new-device">Category </label>
+  <select #deviceCategory>
+    <option *ngFor="let category of categories" [value]="category.id">
+      {{ category.name }}
+    </option>
+  </select>
 
   <button
     class="add-button"
@@ -18,24 +22,24 @@
   >
     Add a device
   </button>
-</div>
 
-<ul class="devices">
-  <li *ngFor="let device of devices">
-    <a routerLink="/devices/detail/{{ device.id }}">
-      <span class="badge">{{ device.id }}</span>
-      <span class="item"
-        ><span class="badge">Color </span>{{ device.color }}</span
-      >
-      <span class="item"
-        ><span class="badge">Number</span>{{ device.partNumber }}</span
-      >
-      <span class="item"
-        ><span class="badge">Category</span>{{ device.category.name }}
-      </span>
-    </a>
-    <button class="delete" title="delete device" (click)="delete(device)">
-      x
-    </button>
-  </li>
-</ul>
+  <ul class="devices">
+    <li *ngFor="let device of devices">
+      <a routerLink="/devices/detail/{{ device.id }}">
+        <span class="badge">{{ device.id }}</span>
+        <span class="item"
+          ><span class="badge">Color </span>{{ device.color }}</span
+        >
+        <span class="item"
+          ><span class="badge">Number</span>{{ device.partNumber }}</span
+        >
+        <span class="item"
+          ><span class="badge">Category</span>{{ device.category.name }}
+        </span>
+      </a>
+      <button class="delete" title="delete device" (click)="delete(device)">
+        x
+      </button>
+    </li>
+  </ul>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriesService } from '../categories/categories.service';
 import { Category } from '../categories/category';
 import { Device } from './device';
 import { DeviceService } from './devices.service';
@@ -10,16 +11,27 @@ import { DeviceService } from './devices.service';
 })
 export class DevicesComponent implements OnInit {
   devices: Device[] = [];
+  categories: Category[] = [];
 
-  constructor(private deviceService: DeviceService) {}
+  constructor(
+    private deviceService: DeviceService,
+    private categoriesService: CategoriesService
+  ) {}
 
   ngOnInit(): void {
     this.getDevices();
+    this.getCategories();
   }
 
   getDevices(): void {
     this.deviceService.getDevices().subscribe((devices) => {
       this.devices = devices;
+    });
+  }
+
+  getCategories(): void {
+    this.categoriesService.getCategories().subscribe((categories) => {
+      this.categories = categories;
     });
   }
 
