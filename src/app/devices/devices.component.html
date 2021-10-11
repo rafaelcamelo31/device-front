@@ -34,5 +34,8 @@
         ><span class="badge">Category</span>{{ device.category.name }}
       </span>
     </a>
+    <button class="delete" title="delete device" (click)="delete(device)">
+      x
+    </button>
   </li>
 </ul>

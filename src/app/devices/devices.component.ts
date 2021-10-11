@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Category } from '../categories/category';
 import { Device } from './device';
 import { DeviceService } from './devices.service';
@@ -32,5 +31,10 @@ export class DevicesComponent implements OnInit {
       .subscribe((device) => {
         this.devices.push(device);
       });
+  }
+
+  delete(device: Device): void {
+    this.devices = this.devices.filter((d) => d !== device);
+    this.deviceService.deleteDevice(device.id).subscribe();
   }
 }
