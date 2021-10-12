@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class DeviceService {
-  private devicesUrl = 'http://localhost:3000/devices';
+  private devicesUrl = 'https://device-back.herokuapp.com/devices';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -34,7 +34,7 @@ export class DeviceService {
       device,
       this.httpOptions
     );
-    location.reload();
+
     return savedPost;
   }
 

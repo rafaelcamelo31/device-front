@@ -8,7 +8,7 @@ import { Category } from './category';
   providedIn: 'root',
 })
 export class CategoriesService {
-  private categoriesUrl = 'http://localhost:3000/categories';
+  private categoriesUrl = 'https://device-back.herokuapp.com/categories';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
